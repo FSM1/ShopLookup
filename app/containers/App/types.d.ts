@@ -2,27 +2,33 @@ import { ActionType } from 'typesafe-actions';
 import * as actions from './actions';
 import { ApplicationRootState } from 'types';
 
-type city = {
+interface city {
   id: number;
   name: string;
   malls: Array<number>;
 }
 
-type mall = {
+interface mall {
   id: number;
   name: string;
   shops: Array<number>;
 }
 
-type shop = {
+interface shop {
   id: number;
   name: string;
 }
 
 interface AppState { 
-  cities: Array<city>,
-  malls: Array<mall>,
-  shops: Array<shop>
+  cities: {
+    [id: number]: city; 
+  },
+  malls: {
+    [id: number]: mall; 
+  },
+  shops: {
+    [id: number]: shop; 
+  }
 }
 
 

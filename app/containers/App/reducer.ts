@@ -12,13 +12,18 @@ import { getType } from 'typesafe-actions';
  */
 
 export const initialState: ContainerState = {
-  cities: [],
-  shops: [],
-  malls: [],
+  cities: {},
+  shops: {},
+  malls: {},
 };
 
 function appReducer(state = initialState, action: ContainerActions) {
   switch (action.type) {
+    case getType(actions.saveEntities):
+      return {
+        ...state,
+        ...action.payload
+      }
     default:
       return state;
   }

@@ -9,3 +9,5 @@ const mall = new schema.Entity('malls', {
 export const city = new schema.Entity('cities', {
   malls: [mall]
 })
+
+export const citiesSchema = { cities: [city] };
