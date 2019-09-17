@@ -13,9 +13,7 @@ const getApiResponse = async () => {
 
 export default function* root() {
     const apiResponse = yield getApiResponse();
-    console.log(apiResponse);
     const normalized = normalize(apiResponse, citiesSchema)
-    console.log(normalized);
     yield put(actions.saveEntities(normalized.entities))
 };
 

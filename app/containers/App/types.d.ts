@@ -2,32 +2,37 @@ import { ActionType } from 'typesafe-actions';
 import * as actions from './actions';
 import { ApplicationRootState } from 'types';
 
-interface city {
+export interface City {
   id: number;
   name: string;
   malls: Array<number>;
 }
 
-interface mall {
+export interface Mall {
   id: number;
   name: string;
   shops: Array<number>;
+  city: number;
 }
 
-interface shop {
+export interface Shop {
   id: number;
   name: string;
+  mall: number;
+  city: number;
 }
 
 interface AppState { 
+  selectedCity: number | undefined,
   cities: {
-    [id: number]: city; 
+    [id: number]: City; 
   },
+  selectedMall: number | undefined,
   malls: {
-    [id: number]: mall; 
+    [id: number]: Mall; 
   },
   shops: {
-    [id: number]: shop; 
+    [id: number]: Shop; 
   }
 }
 

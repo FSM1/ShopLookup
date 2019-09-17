@@ -17,17 +17,22 @@ import saga from './saga';
 import AppWrapper from '../../components/AppWrapper/index';
 import appReducer from './reducer';
 import { selectApp } from './selectors';
+import { City, Shop, Mall } from './types';
+import { setSelectedCity, setSelectedMall } from './actions';
 
 interface OwnProps {
 
 }
 
 export interface StateProps {
-
+  cities: Array<City>,
+  malls: Array<Mall>,
+  shops: Array<Shop>,
 }
 
 interface DispatchProps {
-
+  selectCity(id: number): void,
+  selectMall(id: number): void,
 }
 
 type Props = StateProps & DispatchProps & OwnProps;
@@ -43,7 +48,8 @@ const mapStateToProps = (state) => selectApp(state);
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
-    dispatch
+    selectCity: (id: number) => dispatch(setSelectedCity(id)),
+    selectMall: (id: number) => dispatch(setSelectedMall(id)),
   };
 };
 
