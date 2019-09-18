@@ -7,7 +7,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose, Dispatch } from 'redux';
-import { Container } from '@material-ui/core';
+import { Container, Grid } from '@material-ui/core';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
@@ -19,6 +19,7 @@ import appReducer from './reducer';
 import { selectApp } from './selectors';
 import { City, Shop, Mall } from './types';
 import { setSelectedCity, setSelectedMall } from './actions';
+import SelectableList from 'components/SelectableList';
 
 interface OwnProps {
 
@@ -36,10 +37,20 @@ interface DispatchProps {
 }
 
 type Props = StateProps & DispatchProps & OwnProps;
-const App: React.FunctionComponent<Props> = (props: Props) => (
+const App: React.FunctionComponent<Props> = ({cities, malls, shops, selectCity, selectMall}: Props) => (
   <AppWrapper>
     <Container maxWidth='lg'>
-      Hi there
+      <Grid container>
+        <Grid item xs={4}>
+          <SelectableList listName='Cities' items={cities} selectItem={selectCity} />
+        </Grid>
+        <Grid item xs={4}>
+          <SelectableList listName='Malls' items={malls} selectItem={selectMall} />
+        </Grid>
+        <Grid item xs={4}>
+          <SelectableList listName='shops' items={shops} />
+        </Grid>
+      </Grid>
     </Container>
   </AppWrapper>
 );

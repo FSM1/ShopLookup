@@ -23,17 +23,17 @@ export interface Shop {
 }
 
 interface AppState { 
-  selectedCity: number | undefined,
+  selectedCity: number | undefined;
   cities: {
     [id: number]: City; 
-  },
-  selectedMall: number | undefined,
+  };
+  selectedMall: number | undefined;
   malls: {
     [id: number]: Mall; 
-  },
+  };
   shops: {
     [id: number]: Shop; 
-  }
+  };
 }
 
 
