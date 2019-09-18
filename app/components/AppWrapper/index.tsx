@@ -9,11 +9,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 const styles = theme => createStyles({
   root: {
     display: 'flex',
-    backgroundColor: '#00b5bd',
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
-    background: '#01223b',
   },
   appHeading: {
     flexGrow: 1,
