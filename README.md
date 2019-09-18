@@ -9,5 +9,6 @@ Material-UI for UI framework
 
 ## Getting Started
 
-Install all dependencies by running `yarn`
-Run `yarn start:dev`
+1. Install all dependencies by running `yarn`
+2. Create a copy of `.env.example` named `.env`
+3. Run `yarn start:dev`
