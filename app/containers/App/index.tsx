@@ -29,6 +29,8 @@ export interface StateProps {
   cities: Array<City>,
   malls: Array<Mall>,
   shops: Array<Shop>,
+  selectedCity?: number;
+  selectedMall?: number;
 }
 
 interface DispatchProps {
@@ -37,18 +39,18 @@ interface DispatchProps {
 }
 
 type Props = StateProps & DispatchProps & OwnProps;
-const App: React.FunctionComponent<Props> = ({cities, malls, shops, selectCity, selectMall}: Props) => (
+const App: React.FunctionComponent<Props> = ({cities, malls, shops, selectCity, selectMall, selectedCity, selectedMall}: Props) => (
   <AppWrapper>
     <Container maxWidth='lg'>
       <Grid container>
         <Grid item xs={4}>
-          <SelectableList listName='Cities' items={cities} selectItem={selectCity} />
+          <SelectableList listName='Cities' items={cities} selectItem={selectCity} selectedItem={selectedCity} />
         </Grid>
         <Grid item xs={4}>
-          <SelectableList listName='Malls' items={malls} selectItem={selectMall} />
+          <SelectableList listName='Malls' items={malls} selectItem={selectMall} selectedItem={selectedMall} />
         </Grid>
         <Grid item xs={4}>
-          <SelectableList listName='shops' items={shops} />
+          <SelectableList listName='Shops' items={shops} />
         </Grid>
       </Grid>
     </Container>

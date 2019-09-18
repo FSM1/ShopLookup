@@ -30,6 +30,7 @@ function appReducer(state = initialState, action: ContainerActions) {
       return {
         ...state,
         selectedCity: action.payload,
+        selectedMall: undefined,
       }
     case getType(actions.setSelectedMall):
       return {

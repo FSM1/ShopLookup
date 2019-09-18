@@ -47,4 +47,6 @@ export const selectApp = createStructuredSelector<RootState, StateProps>({
   cities: makeSelectCities,
   malls: makeSelectMalls,
   shops: makeSelectShops,
+  selectedCity: selectSelectedCity,
+  selectedMall: selectSelectedMall,
 })
